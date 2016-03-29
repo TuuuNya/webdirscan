@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 #-*- coding: utf-8 -*-
 
+import re
 import argparse
 import requests
 
@@ -14,6 +15,11 @@ webdic = 'dict/dict.txt'
 
 # 对输入的网址进行处理
 website = args.website
+pattern = re.compile(r'^[http\:\/\/|https\:\/\/]')
+res = pattern.match(website)
+
+if not(res):
+    website = 'http://' + website
 
 # 请求头设置
 headers = {
