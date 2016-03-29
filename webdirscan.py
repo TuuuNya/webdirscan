@@ -4,6 +4,21 @@
 import re
 import argparse
 import requests
+from termcolor import colored
+
+# 版权区域
+
+mycopyright = '''
+*****************************************************
+
+            Web目录扫描工具 - webdirscan.py
+            作者：王松_Striker
+            邮箱：song@secbox.cn
+            团队：安全盒子团队[SecBox.CN]
+
+*****************************************************
+'''
+print colored(mycopyright,'cyan')
 
 # 命令行传值
 parser = argparse.ArgumentParser()
@@ -26,7 +41,6 @@ headers = {
     'Accept': '*/*',
     'Referer': website,
     'User-Agent': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; ',
-    'Connection': 'Keep-Alive',
     'Cache-Control': 'no-cache',
 }
 
@@ -39,13 +53,15 @@ with open(webdic) as infile:
         if(len(dirdic) == 0): break
         webdict.append(website+dirdic)
 
+# 404页面分析,避免有的网站所有页面都返回200的情况
+notfoundpage = requests.get(website+'/songgeshigedashuaibi/hello.html',allow_redirects=False)
 
+# 遍历扫描过程
 for url in webdict:
     try:
-        respon = requests.get(url, headers=headers,timeout=30)
+        respon = requests.get(url, headers=headers,timeout=30,allow_redirects=False)
     except Exception,e:
         print e
 
-    if(respon.status_code == 200):
-        print '['+str(respon.status_code)+']' + ":" + url
-
+    if(respon.status_code == 200 and respon.text != notfoundpage.text):
+        print colored('['+str(respon.status_code)+']','green') + " " + url
