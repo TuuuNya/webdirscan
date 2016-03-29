@@ -1,3 +1,9 @@
+/robots.txt
+/index.php
+/index.asp
+/index.html
+/index.jsp
+/index.action
 /database/
 /tmp/
 /webmanage/
