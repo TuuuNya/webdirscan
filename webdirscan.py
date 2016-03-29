@@ -36,9 +36,8 @@ with open(webdic) as infile:
 
 for url in webdict:
     try:
-        respon = requests.get(url, headers=headers)
+        respon = requests.get(url, headers=headers,timeout=30)
     except Exception,e:
-        print url
         print e
 
     if(respon.status_code == 200):
