@@ -55,6 +55,7 @@ with open(webdic) as infile:
 
 # 404页面分析,避免有的网站所有页面都返回200的情况
 notfoundpage = requests.get(website+'/songgeshigedashuaibi/hello.html',allow_redirects=False)
+notfoundpagetext = notfoundpage.text.replace('/songgeshigedashuaibi/hello.html','')
 
 # 遍历扫描过程
 for url in webdict:
@@ -63,5 +64,5 @@ for url in webdict:
     except Exception,e:
         print e
 
-    if(respon.status_code == 200 and respon.text != notfoundpage.text):
+    if(respon.status_code == 200 and respon.text != notfoundpagetext):
         print colored('['+str(respon.status_code)+']','green') + " " + url
