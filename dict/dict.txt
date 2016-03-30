@@ -1717,7 +1717,6 @@
 /system/upload.php
 /manage/upload.php
 /admin/editor/upload.php
-/
 /fdnews.php
 /bbs/fdnews.php
 /db/play.php
