@@ -1,5 +1,6 @@
 /robots.txt
 /index.php
+/1.html
 /index.asp
 /index.html
 /index.jsp
