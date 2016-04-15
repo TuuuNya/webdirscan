@@ -71,7 +71,7 @@ class Dirscan(object):
             print e
 
         if respon.status_code == 200 and respon.text != self.notfoundpagetext:
-            print colored('[' + str(respon.status_code) + ']', 'green') + " " + url
+            print '[' + str(respon.status_code) + ']' + " " + url
             self.lock.acquire()
             with open(self.output, 'w') as infile:
                 infile.write(url + '\n')
