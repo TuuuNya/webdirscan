@@ -14,10 +14,12 @@ from termcolor import colored
 mycopyright = '''
 *****************************************************
 
-            Web目录扫描工具 - webdirscan.py
-            作者：王松_Striker
-            邮箱：song@secbox.cn
-            团队：安全盒子团队[SecBox.CN]
+            ToolName: Webdirscan.py
+            Author :  Striker
+            Email :   song@secbox.cn
+            Team :    SecBox.CN
+
+ Simple Usage: python webdirscan.py -w www.secbox.cn
 
 *****************************************************
 '''
