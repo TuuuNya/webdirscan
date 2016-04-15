@@ -7,7 +7,6 @@ import argparse
 import requests
 import threading
 import Queue
-from termcolor import colored
 
 # 版权区域
 
@@ -23,7 +22,7 @@ mycopyright = '''
 
 *****************************************************
 '''
-print colored(mycopyright, 'cyan')
+print mycopyright
 
 class Dirscan(object):
     def __init__(self, website, dic, threads_num, output):
