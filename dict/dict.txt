@@ -1,9 +1,11 @@
 /robots.txt
+# index相关
 /index.php
 /1.html
 /index.asp
 /index.html
 /index.jsp
+# 这里是注释
 /index.action
 /database/
 /tmp/

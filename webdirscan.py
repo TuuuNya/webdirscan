@@ -53,7 +53,8 @@ class Dirscan(object):
         self.urllist = Queue.Queue()
         with open(self.dic) as infile:
             for line in infile.readlines():
-                self.urllist.put(line.strip())
+                if line.find('#') == -1 and line != '':
+                    self.urllist.put(line.strip())
 
     def _loadHeaders(self):
         self.headers = {
@@ -73,7 +74,7 @@ class Dirscan(object):
         if respon.status_code == 200 and respon.text != self.notfoundpagetext:
             print colored('[' + str(respon.status_code) + ']', 'green') + " " + url
             self.lock.acquire()
-            with open(self.output, 'a+') as infile:
+            with open(self.output, 'w') as infile:
                 infile.write(url + '\n')
             self.lock.release()
         self.urllist.task_done()
