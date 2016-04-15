@@ -33,7 +33,7 @@ Webdirscan.py是一个跨平台的多线程web目录扫描工具。
 
 使用pip
 
-`pip requests`
+`pip install requests`
 
 ## 3.安装完成
 
