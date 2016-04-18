@@ -73,7 +73,7 @@ class Dirscan(object):
         if respon.status_code == 200 and respon.text != self.notfoundpagetext:
             print '[' + str(respon.status_code) + ']' + " " + url
             self.lock.acquire()
-            with open(self.output, 'w') as infile:
+            with open(self.output, 'a') as infile:
                 infile.write(url + '\n')
             self.lock.release()
         self.urllist.task_done()
